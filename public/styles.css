@@ -1,0 +1,194 @@
+/* Layout and palette modelled on peikoff.com:
+   white page, orange (#CE5C00) titles, blue (#1D8FBA) links, uppercase block labels,
+   one narrow column of "blocks" separated by thin rules. */
+
+:root {
+  --orange: #ce5c00;
+  --blue: #1d8fba;
+  --text: #000;
+  --muted: #555;
+  --rule: #d9d9d9;
+  --grey: #f2f2f2;
+  --font: "ITC Avant Garde Gothic Std Book", "ITC Avant Garde Gothic", "Avant Garde",
+          "URW Gothic", "Century Gothic", "Questrial", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- top bar ---------- */
+.topbar {
+  border-top: 6px solid var(--orange);
+  border-bottom: 1px solid var(--rule);
+}
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.brand {
+  color: var(--text);
+  font-size: 1.15rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.brand:hover { text-decoration: none; color: var(--orange); }
+nav a {
+  margin-left: 22px;
+  color: var(--text);
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+nav a:first-child { margin-left: 0; }
+nav a:hover { color: var(--orange); text-decoration: none; }
+
+/* ---------- hero ---------- */
+.hero { padding: 56px 0 40px; }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 44px;
+  align-items: center;
+}
+.portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  padding: 6px;
+  background: #fff;
+}
+h1 {
+  margin: 0 0 6px;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  line-height: 1.02;
+  font-weight: 400;
+  color: var(--orange);
+  letter-spacing: -.01em;
+}
+.subhead {
+  margin: 0 0 22px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+.blurb { margin: 0 0 22px; max-width: 34em; }
+
+/* ---------- shared block styles ---------- */
+.block-title {
+  margin: 0 0 22px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--orange);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.more, .blue-link {
+  display: inline-block;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.blue-link {
+  padding: 9px 18px;
+  background: var(--blue);
+  color: #fff;
+  border: 0;
+}
+.blue-link:hover, .blue-link:focus { background: var(--orange); text-decoration: none; }
+.blue-link + .more { margin-left: 18px; }
+
+/* ---------- works ---------- */
+.works { padding: 24px 0 48px; }
+.work {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 32px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.work:last-child { border-bottom: 0; }
+.cover {
+  width: 100%;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+.cover-ph {
+  aspect-ratio: 2 / 3;
+  background: var(--grey);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.work h3 {
+  margin: 0 0 4px;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--text);
+}
+.meta {
+  margin: 0 0 14px;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.work p { margin: 0 0 18px; max-width: 38em; }
+
+.grey-block { height: 14px; background: var(--grey); }
+
+/* ---------- about / footer ---------- */
+.about { padding: 40px 0 8px; }
+.about p { max-width: 40em; }
+
+footer {
+  margin-top: 40px;
+  padding: 26px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 720px) {
+  .hero { padding-top: 32px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 26px; }
+  .portrait { max-width: 260px; }
+  .work { grid-template-columns: 1fr; gap: 18px; }
+  .cover, .cover-ph { max-width: 170px; }
+  nav a { margin-left: 0; margin-right: 18px; }
+}
