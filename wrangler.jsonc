@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "barbarapeikoff-com",
+  // Set this to today's date
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  },
+  "preview_urls": true,
+  // Required for Worker Previews. Empty = previews use the top-level settings.
+  "previews": {}
+}
